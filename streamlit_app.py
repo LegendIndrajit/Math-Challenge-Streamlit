@@ -40,9 +40,6 @@ if st.button("Submit Answer"):
                 st.error(f"❌ Incorrect. The correct answer was {st.session_state.answer}.")
             st.session_state.question_count += 1
             st.session_state.question, st.session_state.answer = generate_question()
+            st.experimental_rerun()  # 🔁 This forces the app to refresh and display the next question
         except:
             st.warning("⚠️ Please enter a valid number.")
-
-st.markdown("---")
-st.info(f"🔢 Total Questions Answered: {st.session_state.question_count}")
-st.info(f"🏆 Score: {st.session_state.score}")
